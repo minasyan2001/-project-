@@ -188,10 +188,9 @@ class Xotaker extends LivingCreature{
         }
     }
 }
-class Kerpar {
+class Kerpar extends LivingCreature {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        super(x, y)
         this.energy = 10;
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -240,18 +239,8 @@ class Kerpar {
 
     chooseCell(character) {
         this.getNewDirections()
-        var found = []
-        for (var i in this.directions) {
-            var x = this.directions[i][0]
-            var y = this.directions[i][1]
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i])
-                }
-            }
+        return super.chooseCell(character);
 
-        }
-        return found;
 
     }
 
@@ -313,10 +302,9 @@ class Kerpar {
     }
 
 }
-class Kerpar1 {
+class Kerpar1 extends LivingCreature {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        super(x, y)
         this.energy = 4;
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -345,18 +333,8 @@ class Kerpar1 {
 
     chooseCell(character) {
         this.getNewDirections()
-        var found = []
-        for (var i in this.directions) {
-            var x = this.directions[i][0]
-            var y = this.directions[i][1]
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i])
-                }
-            }
+        return super.chooseCell(character);
 
-        }
-        return found;
 
     }
 
@@ -455,10 +433,9 @@ class Kerpar1 {
     }
 
 }
-class Kerpar2 {
+class Kerpar2 extends LivingCreature {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        super(x, y)
         this.energy = 13;
         this.directions = [
             [this.x - 1, this.y - 1],
@@ -508,18 +485,8 @@ class Kerpar2 {
 
     chooseCell(character) {
         this.getNewDirections()
-        var found = []
-        for (var i in this.directions) {
-            var x = this.directions[i][0]
-            var y = this.directions[i][1]
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i])
-                }
-            }
+        return super.chooseCell(character);
 
-        }
-        return found;
 
     }
 
