@@ -36,7 +36,10 @@ module.exports =  class Kerpar1 extends LivingCreature {
     }
 
     mult() {
-        var empty = random(this.chooseCell(0))
+       // var empty = random(this.chooseCell(0))
+       var arr=this.chooseCell(0);
+       var empty = arr[Math.floor(Math.random()*arr.length)];
+
         if (empty && this.energy > 30) {
             var newX = empty[0]
             var newY = empty[1]
@@ -47,7 +50,10 @@ module.exports =  class Kerpar1 extends LivingCreature {
     }
 
     move() {
-        var empty = random(this.chooseCell(0))
+     //   var empty = random(this.chooseCell(0))
+     var arr=this.chooseCell(0);
+     var empty = arr[Math.floor(Math.random()*arr.length)];
+
         this.energy--;
         if (empty) {
             var newX = empty[0]
@@ -61,9 +67,19 @@ module.exports =  class Kerpar1 extends LivingCreature {
     }
 
     eat() {
-        var food = random(this.chooseCell(1))
-        var food1 = random(this.chooseCell(2))
-        var food2 = random(this.chooseCell(3))
+       // var food = random(this.chooseCell(1))
+       // var food1 = random(this.chooseCell(2))
+       // var food2 = random(this.chooseCell(3))
+       var arr=this.chooseCell(1);
+       var food = arr[Math.floor(Math.random()*arr.length)];
+
+       var arr=this.chooseCell(2);
+       var food1 = arr[Math.floor(Math.random()*arr.length)];
+       
+       var arr=this.chooseCell(3);
+       var food2 = arr[Math.floor(Math.random()*arr.length)];
+
+
 
         if (food) {
             var newX = food[0]
