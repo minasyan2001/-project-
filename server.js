@@ -1,6 +1,6 @@
- express = require('express');
+express = require('express');
 app = express();
- server = require('http').Server(app);
+server = require('http').Server(app);
 io = require('socket.io')(server);
 app.use(express.static("."));
 app.get('/', function (req, res) {
@@ -9,10 +9,10 @@ app.get('/', function (req, res) {
 server.listen(8080);
 
 Grass = require("./Grass.js");
- Xotaker = require("./Xotaker.js");
- Kerpar = require("./Kerpar.js");
- Kerpar1 = require("./Kerpar1.js");
- Kerpar2 = require("./Kerpar2.js");
+Xotaker = require("./Xotaker.js");
+Kerpar = require("./Kerpar.js");
+Kerpar1 = require("./Kerpar1.js");
+Kerpar2 = require("./Kerpar2.js");
 
 
 
@@ -20,7 +20,7 @@ matrix = [];
 matrix = fillMatrix(30, 30);
 console.log(matrix);
 function fillMatrix(n, m) {
-     matrix = [];
+    
     for (var i = 0; i < n; i++) {
         matrix.push([]);
         for (var j = 0; j < m; j++) {
@@ -57,11 +57,11 @@ for (var h = 0; h < 10; h++) {
     matrix[y][x] = 5;
 }
 
- grassArr = [];
- xotakerArr = [];
- kerparArr = [];
+grassArr = [];
+xotakerArr = [];
+kerparArr = [];
 kerpar1Arr = [];
- kerpar2Arr = [];
+kerpar2Arr = [];
 
 for (var y = 0; y < matrix.length; y++) {
     for (var x = 0; x < matrix[y].length; x++) {
@@ -128,8 +128,8 @@ function drawServerayin() {
         kerpar2Arr[i].mult();
         kerpar2Arr[i].die();
     }
-console.log(matrix);
-io.sockets.emit('send matrix', matrix);
+    console.log(matrix);
+    io.sockets.emit("matrix",matrix);
 
 }
 
