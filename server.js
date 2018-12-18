@@ -132,5 +132,23 @@ function drawServerayin() {
     io.sockets.emit("matrix",matrix);
 
 }
+ 
+weather ="garun"
+function ex(){
+    if (weather == "garun"){
+        weather="amar"
+    }
+    else if (weather == "amar"){
+        weather="ashun"
+    }
+    else if (weather == "ashun"){
+        weather="dzmer"
+    }
+    else if (weather == "dzmer"){
+        weather="garun"
+    }
+    io.sockets.emit("weather",weather)
+}
 
-setInterval(drawServerayin, 100);
+setInterval(drawServerayin, 250);
+setInterval(ex, 1000);
