@@ -66,6 +66,7 @@ module.exports =  class Kerpar extends LivingCreature {
             matrix[newY][newX] = 3
             var kp = new Kerpar(newX, newY)
             kerparArr.push(kp)
+            gishatichyCnvec++;
         }
     }
 

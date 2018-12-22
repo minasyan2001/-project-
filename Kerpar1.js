@@ -46,6 +46,7 @@ module.exports =  class Kerpar1 extends LivingCreature {
             matrix[newY][newX] = 4
             var kp1 = new Kerpar1(newX, newY)
             kerpar1Arr.push(kp1)
+            mardyQaylec ++;
         }
     }
 

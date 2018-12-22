@@ -92,8 +92,10 @@ module.exports =  class Kerpar2 extends LivingCreature {
     eat() {
       //  var food = random(this.chooseCell(4))
       var arr=this.chooseCell(4);
+      var arr=this.chooseCell(1);
       var food = arr[Math.floor(Math.random()*arr.length)];
 
+      if (weather == "garun" && weather == "dzmer"){
         if (food) {
             var newX = food[0]
             var newY = food[1]
@@ -109,10 +111,34 @@ module.exports =  class Kerpar2 extends LivingCreature {
             this.x = newX
             this.y = newY
             this.energy += 2
+            mardakeryKerav ++;
         }
     }
+    else  if (weather == "amar" && weather == "ashun"){
+        if (food) {
+            var newX = food[0]
+            var newY = food[1]
+            matrix[newY][newX] = 5
+            matrix[this.y][this.x] = 0
+
+            for (var i in grassArr) {
+                if (grassArr[i].x == newX && grassArr[i].y == newY) {
+                    grassArr.splice(i, 1)
+                }
+            }
+
+            this.x = newX
+            this.y = newY
+            this.energy += 2
+            mardakeryKerav ++;
+        }
+    }
+}
+
+
 
     die() {
+        
         if (this.energy <= 0) {
             matrix[this.y][this.x] = 0
             for (var i in kerpar2Arr) {
@@ -123,6 +149,6 @@ module.exports =  class Kerpar2 extends LivingCreature {
         }
 
     }
-
-
 }
+
+

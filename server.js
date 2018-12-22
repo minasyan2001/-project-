@@ -6,6 +6,7 @@ app.use(express.static("."));
 app.get('/', function (req, res) {
     res.redirect('index.html');
 });
+fs = require("fs");
 server.listen(8080);
 
 Grass = require("./Grass.js");
@@ -63,34 +64,73 @@ kerparArr = [];
 kerpar1Arr = [];
 kerpar2Arr = [];
 
+grassyTaracvec =0;
+xotakeryKerav =0;
+xotakeryBazmacav =0;
+gishatichyCnvec =0;
+mardyQaylec =0;
+marduQanak =0;
+mardakeryKerav =0;
+mardakeryQanak =0;
+
+
+
+
 for (var y = 0; y < matrix.length; y++) {
     for (var x = 0; x < matrix[y].length; x++) {
         if (matrix[y][x] == 1) {
             var gr = new Grass(x, y, 1);
             grassArr.push(gr);
+            grassyTaracvec++;
         }
         else if (matrix[y][x] == 2) {
             var xt = new Xotaker(x, y, 2);
             xotakerArr.push(xt);
+            xotakeryKerav ++;
+            xotakeryBazmacav ++;
         }
         else if (matrix[y][x] == 3) {
             var kp = new Kerpar(x, y, 3);
             kerparArr.push(kp);
+            gishatichyCnvec ++;
         }
         else if (matrix[y][x] == 4) {
             var kp1 = new Kerpar1(x, y, 4);
             kerpar1Arr.push(kp1);
+            mardyQaylec ++;
+            marduQanak ++;
         }
         else if (matrix[y][x] == 5) {
             var kp2 = new Kerpar2(x, y, 5);
             kerpar2Arr.push(kp2);
+            mardakeryKerav ++;
+            mardakeryQanak ++;
         }
 
     }
 }
 
 
+statistics = {"objarr":[]};
 
+setInterval(function(){
+    statistics.objarr.push({
+        "Խոտը տարածվեց" : grassyTaracvec,
+        "Խոտի քանակ" : grassArr.length,
+        "Խոտակերը կերավ" : xotakeryKerav,
+        "Խոտակերը բազմացավ" : xotakeryBazmacav,
+        "Գիշատիչ ծնվեց" : gishatichyCnvec,
+        "Մարդը քայլեց" :mardyQaylec,
+        "Մարդկանց քանակը" :kerpar1Arr.length ,
+        "Մարդակերը կերավ" :mardakeryKerav,
+        "մարդակերի քանակ" :kerpar2Arr.length ,
+        
+        
+    });
+   fs.writeFile("Statistic.json",JSON.stringify(statistics,null,3),function(err){
+       if(err) throw err;
+   })
+},13000);
 
 function drawServerayin() {
 

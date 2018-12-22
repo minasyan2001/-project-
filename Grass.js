@@ -75,6 +75,7 @@ module.exports = class Grass  extends LivingCreature {
             matrix[newY][newX] = 1
             var newGr = new Grass(newX, newY)
             grassArr.push(newGr)
+            grassyTaracvec ++;
         }
     }
 }

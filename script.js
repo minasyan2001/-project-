@@ -3,6 +3,8 @@ var side = 35
 var socket = io();
 var m = 30;
 var n = 30;
+weather ="garun"
+
 function setup() {
     frameRate(5);
     createCanvas(m * side, n * side);
